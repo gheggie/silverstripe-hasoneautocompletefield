@@ -1,6 +1,5 @@
 <?php
 
-
 class HasOneAutocompleteField extends FormField
 {
     private static $allowed_actions = array(
@@ -314,7 +313,7 @@ class HasOneAutocompleteField extends FormField
                 user_error("PageSearchField can't find field called ".$labelField."on ".$item->ClassName, E_USER_ERROR);
             }
 
-            if ($item->Link()) {
+            if ($item->hasMethod('Link') && $item->Link()) {
                 $text = "<a href='{$item->Link()}' target='_blank'>".$text.'</a>';
             }
         }
